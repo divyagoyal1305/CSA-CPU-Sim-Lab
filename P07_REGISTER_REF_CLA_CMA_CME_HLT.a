@@ -1,0 +1,8 @@
+; Practical 7 : CLA, CMA, CME, HLT
+; Machine : BasicComputer.cpu
+ LDA NUM
+ CLA
+ CMA
+ CME
+ HLT
+NUM: .data 1 25

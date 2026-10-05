@@ -1,0 +1,9 @@
+; Practical 9 : CIR, CIL
+; Machine : BasicComputer.cpu
+ LDA NUM
+ CIR
+ CIR
+ CIL
+ CIL
+ HLT
+NUM: .data 1 9

@@ -1,0 +1,12 @@
+; Practical 10 : Sum integers until a negative number is read
+; Machine : BasicComputer.cpu
+LOOP: INP
+ SPA
+ BUN DONE
+ ADD SUM
+ STA SUM
+ BUN LOOP
+DONE: LDA SUM
+ OUT
+ HLT
+SUM: .data 1 0
