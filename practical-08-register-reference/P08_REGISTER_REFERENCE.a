@@ -1,0 +1,20 @@
+; ==============================================================
+; Practical 8 : Register-reference instructions INC, SPA, SNA, SZE
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; A skip instruction adds 1 to PC when its condition is true, so
+; the instruction after it is NOT executed. Each HLT below is a
+; "trap": the program only reaches the final HLT if every skip works.
+; ==============================================================
+
+LDA NUM
+INC
+SNA
+HLT
+INC
+SPA
+HLT
+SZE
+HLT
+INC
+HLT
+NUM: .data 1 -2
