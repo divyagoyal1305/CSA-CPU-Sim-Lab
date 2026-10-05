@@ -1,0 +1,74 @@
+; ==============================================================
+; Practical 5 : Logical operations AND, OR, NOT, XOR, NOR, NAND
+; on two user-entered numbers A and B
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+;
+; The Basic Computer has only two logic instructions:
+; AND (memory-reference) AC <- AC ^ M[addr]
+; CMA (register-reference) AC <- AC'
+; AND + NOT is a functionally complete set, so every other
+; operation is built from them with Boolean algebra:
+; NAND = (A.B)'
+; OR = (A'.B')' (De Morgan)
+; NOR = (A + B)'
+; XOR = (A + B) . (A.B)'
+; Outputs appear in this order: AND, OR, NOT A, NOT B, XOR, NOR, NAND
+; ==============================================================
+
+INP
+STA A
+INP
+STA B
+
+; ---------- AND = A . B ----------------------------------------
+LDA A
+AND B
+STA RAND
+OUT
+
+; ---------- OR = (A' . B')' ------------------------------------
+LDA B
+CMA
+STA NB
+LDA A
+CMA
+STA NA
+AND NB
+CMA
+STA ROR
+OUT
+
+; ---------- NOT A, NOT B ---------------------------------------
+LDA NA
+OUT
+LDA NB
+OUT
+
+; ---------- XOR = (A + B) . (A . B)' ---------------------------
+LDA RAND
+CMA
+STA RNAND
+AND ROR
+STA RXOR
+OUT
+
+; ---------- NOR = (A + B)' -------------------------------------
+LDA ROR
+CMA
+STA RNOR
+OUT
+
+; ---------- NAND = (A . B)' ------------------------------------
+LDA RNAND
+OUT
+HLT
+
+A: .data 1 0
+B: .data 1 0
+NA: .data 1 0
+NB: .data 1 0
+RAND: .data 1 0
+ROR: .data 1 0
+RXOR: .data 1 0
+RNOR: .data 1 0
+RNAND: .data 1 0
