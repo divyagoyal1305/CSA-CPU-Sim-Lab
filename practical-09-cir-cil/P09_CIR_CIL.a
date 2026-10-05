@@ -1,0 +1,14 @@
+; ==============================================================
+; Practical 9 : Register-reference instructions CIR, CIL
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; CIR : circulate E and AC right (E -> AC(15), AC(0) -> E)
+; CIL : circulate E and AC left (AC(15) -> E, E -> AC(0))
+; ==============================================================
+
+LDA NUM
+CIR
+CIR
+CIL
+CIL
+HLT
+NUM: .data 1 9
